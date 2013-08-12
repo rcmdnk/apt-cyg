@@ -4,11 +4,11 @@ apt-cyg
 A command-line software installer for Cygwin.
 Original version is available in http://code.google.com/p/apt-cyg/.
 
-Recently, Cygwin mirror sites changes their directory structure,
+Recently, Cygwin mirror sites change their directory structure,
 and original apt-cyg doesn't work on them anymore.
 
 In this repository, an updated version of apt-cyg which can be used for
-new Cygwin mirror site strucuture is available.
+the new Cygwin mirror site strucuture is available.
 
 
 ## Installation
