@@ -45,7 +45,8 @@ function usage()
   echo "  \"apt-cyg describe <patterns>\" to describe packages matching patterns"
   echo "  \"apt-cyg packageof <commands or files>\" to locate parent packages"
   echo "Options:"
-  echo "  --mirror, -m <url> : set mirror (Need x86/x86_64 at the end)"
+  echo "  --mirror, -m <url> : set mirror (Put x86/x86_64 at the end"
+  echo "                       if you want to specify architecture)"
   echo "  --cache, -c <dir>  : set cache"
   echo "  --file, -f <file>  : read package names from file"
   echo "  --noupdate, -u     : don't update setup.ini from mirror"
@@ -70,6 +71,9 @@ function findworkspace()
 
   mirror=ftp://mirror.mcs.anl.gov/pub/cygwin
   arch=x86_64
+  if [ "`uname -m`" = "i686" ];then
+    arch=x86
+  fi
   cache=/setup
 
   # work wherever setup worked last, if possible
@@ -82,7 +86,10 @@ function findworkspace()
 
   if test -e /etc/setup/last-arch
   then
-    arch="`head -1 /etc/setup/last-arch`"
+    archtmp="`head -1 /etc/setup/last-arch`"
+    if [ "$archtmp" != "" ];then
+      arch=$archtmp
+    fi
   fi
 
   if test -e /etc/setup/last-mirror
@@ -151,12 +158,13 @@ do
     --mirror|-m)
       arch=`basename $2`
       if [[ ! "$arch" =~ x86 ]];then
-        echo "Need /x86 (for 32 bit) or /x86_64 (for 64 bit) at the end of site ULR."
-        exit 1
+        echo "$2" > /etc/setup/last-mirror
+        echo "" > /etc/setup/last-arch
+      else
+        mirror=`dirname $2`
+        echo "$mirror" > /etc/setup/last-mirror
+        echo "$arch" > /etc/setup/last-arch
       fi
-      mirror=`dirname $2`
-      echo "$mirror" > /etc/setup/last-mirror
-      echo "$arch" > /etc/setup/last-arch
       shift ; shift
     ;;
 
