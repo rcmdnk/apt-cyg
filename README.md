@@ -16,3 +16,11 @@ the new Cygwin mirror site strucuture is available.
     $ git clone git@github.com:rcmdnk/apt-cyg.git
     $ cp apt-cyg/apt-cyg /bin/
     $ rm -rf apt-cyg # if the local repository is not necessary
+
+## Usage
+To set a mirror site, need x86 (for 32 bit machine) or x86_64 (for 64 bit machine)
+at the end of URL
+
+    $ apt-cyg update -m ftp://mirror.mcs.anl.gov/pub/cygwin/x86_64/
+
+Others work same as original apt-cyg.

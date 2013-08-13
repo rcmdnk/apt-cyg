@@ -45,7 +45,7 @@ function usage()
   echo "  \"apt-cyg describe <patterns>\" to describe packages matching patterns"
   echo "  \"apt-cyg packageof <commands or files>\" to locate parent packages"
   echo "Options:"
-  echo "  --mirror, -m <url> : set mirror"
+  echo "  --mirror, -m <url> : set mirror (Need x86/x86_64 at the end)"
   echo "  --cache, -c <dir>  : set cache"
   echo "  --file, -f <file>  : read package names from file"
   echo "  --noupdate, -u     : don't update setup.ini from mirror"
@@ -69,6 +69,7 @@ function findworkspace()
   # default working directory and mirror
 
   mirror=ftp://mirror.mcs.anl.gov/pub/cygwin
+  arch=x86_64
   cache=/setup
 
   # work wherever setup worked last, if possible
