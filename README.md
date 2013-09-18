@@ -25,3 +25,7 @@ Architecture will be set automatically.
 If you want to specify mirror site, put x86 (for 32 bit machine) or x86_64 (for 64 bit machine) at the end of URL
 
     $ apt-cyg update -m ftp://mirror.mcs.anl.gov/pub/cygwin/x86_64/
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rcmdnk/apt-cyg/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
