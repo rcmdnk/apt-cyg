@@ -1,6 +1,16 @@
 apt-cyg
 =======
 
+:warning:
+
+The original author is now actively including updates:
+[transcode-open/apt-cyg](https://github.com/transcode-open/apt-cyg).
+
+All updates in this repository are already adopted in there.
+Therefore, it is better to use above.
+
+- - -
+
 A command-line software installer for Cygwin.
 Original version is available in http://code.google.com/p/apt-cyg/.
 
@@ -25,7 +35,4 @@ Architecture will be set automatically.
 If you want to specify mirror site, put x86 (for 32 bit machine) or x86_64 (for 64 bit machine) at the end of URL
 
     $ apt-cyg update -m ftp://mirror.mcs.anl.gov/pub/cygwin/x86_64/
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rcmdnk/apt-cyg/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
